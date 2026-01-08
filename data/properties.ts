@@ -1,0 +1,278 @@
+// src/data/properties.ts
+// Curated 12 premium demo properties with varied types, locations, and features
+// Images use Unsplash placeholders - replace with high-res professional photos in production
+// Locations focused on Nigeria (e.g., Lagos, Abuja) for The Neeps International theme
+
+export interface Property {
+  id: string;
+  title: string;
+  price: number;
+  location: string;
+  type: 'sale' | 'rent';
+  bedrooms: number;
+  bathrooms: number;
+  size: number; // sqft
+  status: 'available' | 'sold' | 'pending' | 'rented';
+  amenities: string[];
+  images: string[]; // Array for gallery
+  description: string;
+  agent: { name: string; phone: string; email: string };
+  map: { lat: number; lng: number };
+  video?: string; // Optional video walkthrough (YouTube embed ID)
+  virtualTour?: string; // Optional 360 tour URL
+}
+
+export const demoProperties: Property[] = [
+  {
+    id: '1',
+    title: 'Oceanfront Luxury Villa',
+    price: 1250000,
+    location: 'Banana Island, Lagos, Nigeria',
+    type: 'sale',
+    bedrooms: 5,
+    bathrooms: 6,
+    size: 6500,
+    status: 'available',
+    amenities: ['Private Pool', 'Ocean View', 'Home Theater', 'Gym', 'Smart Home System', 'Infinity Pool', 'Guest House'],
+    images: [
+      'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585153490-76fb20a32601?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Exquisite oceanfront villa blending modern architecture with tropical elegance. Panoramic views, premium finishes, and state-of-the-art amenities for ultimate luxury living.',
+    agent: { name: 'Elena Rossi', phone: '+234-801-234-5678', email: 'elena@neepsintl.com' },
+    map: { lat: 6.4521, lng: 3.4723 },
+    video: 'dQw4w9WgXcQ', // Example YouTube ID
+    virtualTour: 'https://my.matterport.com/show/?m=exampletour1',
+  },
+  {
+    id: '2',
+    title: 'Modern Penthouse Apartment',
+    price: 850000,
+    location: 'Victoria Island, Lagos, Nigeria',
+    type: 'sale',
+    bedrooms: 4,
+    bathrooms: 5,
+    size: 4200,
+    status: 'available',
+    amenities: ['Rooftop Terrace', 'City Skyline View', 'Spa Bathroom', 'Wine Cellar', 'Concierge Service'],
+    images: [
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1567496898669-2edabfa41a17?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566752355-35792bab158f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Sleek penthouse with floor-to-ceiling windows offering breathtaking city views. High-end appliances, custom interiors, and exclusive building amenities.',
+    agent: { name: 'Marcus Adebayo', phone: '+234-802-345-6789', email: 'marcus@neepsintl.com' },
+    map: { lat: 6.4281, lng: 3.4219 },
+  },
+  {
+    id: '3',
+    title: 'Seaside Bungalow Retreat',
+    price: 4500, // Monthly rent
+    location: 'Lekki Peninsula, Lagos, Nigeria',
+    type: 'rent',
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2800,
+    status: 'available',
+    amenities: ['Beach Access', 'Outdoor Kitchen', 'Yoga Deck', 'Solar Power', 'Private Garden'],
+    images: [
+      'https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154363-67eb1350b2e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Charming seaside bungalow perfect for relaxation. Open-concept design, natural materials, and direct beach access for a serene coastal lifestyle.',
+    agent: { name: 'Sophia Chen', phone: '+234-803-456-7890', email: 'sophia@neepsintl.com' },
+    map: { lat: 6.4095, lng: 3.4678 },
+    virtualTour: 'https://my.matterport.com/show/?m=exampletour2',
+  },
+  {
+    id: '4',
+    title: 'Executive Mansion Estate',
+    price: 2800000,
+    location: 'Asokoro, Abuja, Nigeria',
+    type: 'sale',
+    bedrooms: 7,
+    bathrooms: 8,
+    size: 9500,
+    status: 'pending',
+    amenities: ['Tennis Court', 'Home Office', 'Library', 'Elevator', 'Security System', 'Wine Cellar', 'Guest Suites'],
+    images: [
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Grand executive mansion in prestigious neighborhood. Opulent interiors, expansive grounds, and premium facilities for elite living.',
+    agent: { name: 'David Okon', phone: '+234-804-567-8901', email: 'david@neepsintl.com' },
+    map: { lat: 9.0579, lng: 7.4951 },
+    video: 'anotherVideoID',
+  },
+  {
+    id: '5',
+    title: 'Contemporary Townhouse',
+    price: 3200, // Monthly
+    location: 'Maitama, Abuja, Nigeria',
+    type: 'rent',
+    bedrooms: 4,
+    bathrooms: 4,
+    size: 3500,
+    status: 'available',
+    amenities: ['Gated Community', 'Fitness Center', 'Rooftop Lounge', 'Underground Parking', 'Smart Locks'],
+    images: [
+      'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585153490-76fb20a32601?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Stylish contemporary townhouse in upscale area. Modern design, high ceilings, and community amenities for comfortable urban living.',
+    agent: { name: 'Aisha Bello', phone: '+234-805-678-9012', email: 'aisha@neepsintl.com' },
+    map: { lat: 9.0833, lng: 7.5307 },
+  },
+  {
+    id: '6',
+    title: 'Hilltop Luxury Residence',
+    price: 1750000,
+    location: 'Ikoyi, Lagos, Nigeria',
+    type: 'sale',
+    bedrooms: 6,
+    bathrooms: 7,
+    size: 7200,
+    status: 'available',
+    amenities: ['Panoramic Views', 'Infinity Pool', 'Home Gym', 'Sauna', 'Theater Room', 'Solar Panels'],
+    images: [
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1613977257452-8a00e5365c03?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Majestic hilltop residence with stunning vistas. Custom-built with sustainable features and lavish entertainment spaces.',
+    agent: { name: 'Robert Johnson', phone: '+234-806-789-0123', email: 'robert@neepsintl.com' },
+    map: { lat: 6.4541, lng: 3.4346 },
+    virtualTour: 'https://my.matterport.com/show/?m=exampletour3',
+  },
+  {
+    id: '7',
+    title: 'Urban Loft Apartment',
+    price: 2800, // Monthly
+    location: 'Garki, Abuja, Nigeria',
+    type: 'rent',
+    bedrooms: 2,
+    bathrooms: 2,
+    size: 1800,
+    status: 'rented',
+    amenities: ['Exposed Brick', 'High Ceilings', 'Balcony', 'Pet Friendly', 'Co-working Space'],
+    images: [
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Trendy urban loft with industrial chic design. Perfect for young professionals seeking a vibrant city lifestyle.',
+    agent: { name: 'Linda Mwangi', phone: '+234-807-890-1234', email: 'linda@neepsintl.com' },
+    map: { lat: 9.0333, lng: 7.4833 },
+  },
+  {
+    id: '8',
+    title: 'Waterfront Estate',
+    price: 3200000,
+    location: 'Eko Atlantic, Lagos, Nigeria',
+    type: 'sale',
+    bedrooms: 8,
+    bathrooms: 9,
+    size: 11000,
+    status: 'available',
+    amenities: ['Private Dock', 'Helipad', 'Spa', 'Billiard Room', 'Staff Quarters', 'Tennis Court'],
+    images: [
+      'https://images.unsplash.com/photo-1600585153490-76fb20a32601?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154363-67eb1350b2e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Ultra-luxury waterfront estate in exclusive development. Unparalleled amenities and privacy for high-net-worth individuals.',
+    agent: { name: 'Ahmed Yusuf', phone: '+234-808-901-2345', email: 'ahmed@neepsintl.com' },
+    map: { lat: 6.4100, lng: 3.4000 },
+    video: 'videoID3',
+  },
+  {
+    id: '9',
+    title: 'Cozy Family Home',
+    price: 1800, // Monthly
+    location: 'Wuse, Abuja, Nigeria',
+    type: 'rent',
+    bedrooms: 3,
+    bathrooms: 3,
+    size: 2400,
+    status: 'available',
+    amenities: ['Backyard', 'Playroom', 'Home Office', 'Garage', 'Security Gate'],
+    images: [
+      'https://images.unsplash.com/photo-1600585154363-67eb1350b2e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585153490-76fb20a32601?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Warm and inviting family home in family-friendly neighborhood. Spacious layout with modern conveniences.',
+    agent: { name: 'Grace Okafor', phone: '+234-809-012-3456', email: 'grace@neepsintl.com' },
+    map: { lat: 9.0792, lng: 7.4803 },
+  },
+  {
+    id: '10',
+    title: 'High-Rise Luxury Condo',
+    price: 950000,
+    location: 'Lekki Phase 1, Lagos, Nigeria',
+    type: 'sale',
+    bedrooms: 3,
+    bathrooms: 4,
+    size: 3000,
+    status: 'sold',
+    amenities: ['Concierge', 'Pool Deck', 'Fitness Center', 'Cinema Room', 'Business Lounge'],
+    images: [
+      'https://images.unsplash.com/photo-1567496898669-2edabfa41a17?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566752355-35792bab158f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Sophisticated high-rise condo with premium facilities. Ideal for urban professionals seeking convenience and style.',
+    agent: { name: 'Thomas Eze', phone: '+234-810-123-4567', email: 'thomas@neepsintl.com' },
+    map: { lat: 6.4300, lng: 3.4600 },
+  },
+  {
+    id: '11',
+    title: 'Riverside Villa',
+    price: 2100000,
+    location: 'Port Harcourt, Rivers State, Nigeria',
+    type: 'sale',
+    bedrooms: 5,
+    bathrooms: 6,
+    size: 5800,
+    status: 'available',
+    amenities: ['River View', 'Boat Dock', 'Outdoor Entertainment', 'Chef\'s Kitchen', 'Home Automation'],
+    images: [
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Elegant riverside villa with seamless indoor-outdoor flow. Premium materials and smart features throughout.',
+    agent: { name: 'Olivia Nwosu', phone: '+234-811-234-5678', email: 'olivia@neepsintl.com' },
+    map: { lat: 4.8156, lng: 7.0498 },
+    virtualTour: 'https://my.matterport.com/show/?m=exampletour4',
+  },
+  {
+    id: '12',
+    title: 'Compact Studio Apartment',
+    price: 1200, // Monthly
+    location: 'Ikeja, Lagos, Nigeria',
+    type: 'rent',
+    bedrooms: 1,
+    bathrooms: 1,
+    size: 800,
+    status: 'available',
+    amenities: ['Gym Access', 'Laundry Facilities', 'Secure Parking', '24/7 Security', 'High-Speed Internet'],
+    images: [
+      'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90',
+    ],
+    description: 'Efficient studio apartment in central location. Modern amenities for convenient city living.',
+    agent: { name: 'Victor Ademola', phone: '+234-812-345-6789', email: 'victor@neepsintl.com' },
+    map: { lat: 6.5960, lng: 3.3421 },
+  },
+];
