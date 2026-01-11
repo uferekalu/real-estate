@@ -129,7 +129,7 @@ export default function PropertyCard({ property, featured = false }: PropertyCar
 
         <Link
           href={`/properties/${property.id}`}
-          className="block w-full py-4 text-center bg-[#c9a96e] text-white font-semibold rounded-2xl hover:bg-[#b8975c] transition-colors duration-300"
+          className="block w-full py-4 text-center bg-gray-950/75 text-white font-semibold rounded-2xl hover:bg-gray-950/55 transition-colors duration-300"
         >
           View Details
         </Link>

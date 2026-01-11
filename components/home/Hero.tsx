@@ -34,12 +34,12 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4 }}
           >
-            <span className="inline-block text-gold text-xl lg:text-2xl font-medium tracking-[0.35em] uppercase mb-6">
+            <span className="inline-block text-white text-xl lg:text-2xl font-medium tracking-[0.35em] uppercase mb-6">
               The Neeps International
             </span>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[1.02] tracking-[-0.02em]">
-              Discover Your
+              Discover Your {" "}
               <br className="sm:hidden" />
               <span className="text-gold block sm:inline">Dream Property</span>
             </h1>
@@ -63,9 +63,9 @@ export default function Hero() {
                 href="/properties"
                 className="group relative inline-flex items-center justify-center px-10 py-5 bg-gold text-[#1a1a1a] font-semibold text-lg rounded-full overflow-hidden shadow-xl hover:shadow-gold/40 transition-all duration-500 hover:-translate-y-1 active:translate-y-0"
               >
-                <span className="relative z-10">Explore Properties</span>
+                <span className="relative z-10 text-white">Explore Properties</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-gold to-[#d4b67a] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <ArrowRight className="ml-3 w-5 h-5 relative z-10 transition-transform group-hover:translate-x-1.5" />
+                <ArrowRight className="ml-3 w-5 h-5 relative z-10 text-white transition-transform group-hover:translate-x-1.5" />
               </a>
 
               <a
@@ -91,7 +91,7 @@ export default function Hero() {
             className="w-1.5 h-3 bg-white rounded-full"
           />
         </div>
-        <span className="text-white/70 text-xs sm:text-sm tracking-widest uppercase font-medium">
+        <span className="text-white text-xs sm:text-sm tracking-widest uppercase font-medium">
           Scroll to discover
         </span>
       </motion.div>

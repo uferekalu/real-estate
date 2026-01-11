@@ -1,8 +1,3 @@
-// src/data/properties.ts
-// Curated 12 premium demo properties with varied types, locations, and features
-// Images use Unsplash placeholders - replace with high-res professional photos in production
-// Locations focused on Nigeria (e.g., Lagos, Abuja) for The Neeps International theme
-
 export interface Property {
   id: string;
   title: string;
