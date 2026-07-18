@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Phone, Mail, Globe, Building2, Award, Users, Star } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Star } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -97,9 +97,9 @@ const testimonials = [
 
 export default function Agents() {
   return (
-    <main className="bg-gradient-to-b from-white to-gray-100 min-h-screen text-gray-900">
+    <main className="bg-gradient-to-b from-surface to-surface-muted min-h-screen text-text-heading">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-gray-950/75">
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-surface-inverted/75">
         <div className="absolute inset-0 opacity-30">
           <Image
             src="https://images.unsplash.com/photo-1522204523234-8720aa4e3d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2370&q=90"
@@ -109,17 +109,17 @@ export default function Agents() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-950/60 to-gray-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-inverted/60 to-surface-inverted/80" />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
           className="relative z-10 text-center px-6 max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+          <h1 className="text-5xl md:text-6xl font-bold text-text-inverted mb-6 leading-tight drop-shadow-2xl">
             Our Expert Agents
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto drop-shadow-lg">
+          <p className="text-xl md:text-2xl text-text-inverted/90 max-w-3xl mx-auto drop-shadow-lg">
             Meet our team of dedicated professionals committed to delivering exceptional real estate experiences.
           </p>
         </motion.div>
@@ -134,13 +134,13 @@ export default function Agents() {
           transition={{ duration: 0.9 }}
           className="text-center mb-16"
         >
-          <span className="text-gray-950 text-lg font-medium tracking-widest uppercase block mb-4">
+          <span className="text-text-heading text-lg font-medium tracking-widest uppercase block mb-4">
             Dedicated Professionals
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-950 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-text-heading mb-6">
             Find Your Perfect Agent
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-text-muted max-w-3xl mx-auto">
             Our agents are experts in Nigeria's luxury real estate market, ready to guide you every step of the way.
           </p>
         </motion.div>
@@ -156,7 +156,7 @@ export default function Agents() {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="group relative rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-gray-950/20 transition-all duration-500 bg-white"
+              className="group relative rounded-card overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-surface-inverted/20 transition-all duration-500 bg-surface"
             >
               <div className="relative h-80 overflow-hidden">
                 <Image
@@ -165,28 +165,28 @@ export default function Agents() {
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 scale-105 group-hover:scale-100 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/50 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface-inverted/50 to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-950 mb-1">{agent.name}</h3>
-                <p className="text-gray-950/80 font-semibold text-lg mb-2">{agent.role}</p>
-                <p className="text-gray-600 text-sm mb-4">{agent.specialty} • {agent.experience}</p>
-                <p className="text-gray-700 leading-relaxed mb-6">{agent.bio}</p>
-                
+                <h3 className="text-2xl font-bold text-text-heading mb-1">{agent.name}</h3>
+                <p className="text-text-heading/80 font-semibold text-lg mb-2">{agent.role}</p>
+                <p className="text-text-muted text-sm mb-4">{agent.specialty} • {agent.experience}</p>
+                <p className="text-text-primary leading-relaxed mb-6">{agent.bio}</p>
+
                 <div className="space-y-3 mb-6">
-                  <a href={`tel:${agent.phone}`} className="flex items-center gap-3 text-gray-950 hover:text-gray-950/70 transition-colors">
+                  <a href={`tel:${agent.phone}`} className="flex items-center gap-3 text-text-heading hover:text-accent transition-colors">
                     <Phone className="w-5 h-5" />
                     {agent.phone}
                   </a>
-                  <a href={`mailto:${agent.email}`} className="flex items-center gap-3 text-gray-950 hover:text-gray-950/70 transition-colors">
+                  <a href={`mailto:${agent.email}`} className="flex items-center gap-3 text-text-heading hover:text-accent transition-colors">
                     <Mail className="w-5 h-5" />
                     {agent.email}
                   </a>
                 </div>
-                
+
                 <Link
                   href={`/agents/${agent.name.toLowerCase().replace(/\s/g, '-')}`}
-                  className="block w-full py-3 text-center bg-gray-950/75 text-white font-semibold rounded-xl hover:bg-gray-950 transition-colors"
+                  className="block w-full py-3 text-center bg-surface-inverted/75 text-text-inverted font-semibold rounded-xl hover:bg-surface-inverted transition-colors"
                 >
                   View Profile
                 </Link>
@@ -197,7 +197,7 @@ export default function Agents() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-gray-950/75 py-24 text-white">
+      <section className="bg-surface-inverted/75 py-24 text-text-inverted">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -206,13 +206,13 @@ export default function Agents() {
             transition={{ duration: 0.9 }}
             className="text-center mb-16"
           >
-            <span className="text-white text-lg font-medium tracking-widest uppercase block mb-4">
+            <span className="text-text-inverted text-lg font-medium tracking-widest uppercase block mb-4">
               Client Stories
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-text-inverted mb-6">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+            <p className="text-xl text-text-inverted/80 max-w-3xl mx-auto">
               Hear from satisfied clients about their experiences with our agents.
             </p>
           </motion.div>
@@ -235,8 +235,8 @@ export default function Agents() {
                     <Star key={j} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-white/90 text-lg leading-relaxed mb-6">"{testimonial.quote}"</p>
-                <p className="text-white font-semibold">{testimonial.author}</p>
+                <p className="text-text-inverted/90 text-lg leading-relaxed mb-6">"{testimonial.quote}"</p>
+                <p className="text-text-inverted font-semibold">{testimonial.author}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -244,14 +244,14 @@ export default function Agents() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-28 text-center bg-white">
+      <section className="py-28 text-center bg-surface">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold text-gray-950 mb-8"
+            className="text-4xl md:text-5xl font-bold text-text-heading mb-8"
           >
             Ready to Find Your Dream Property?
           </motion.h2>
@@ -260,7 +260,7 @@ export default function Agents() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto"
+            className="text-xl text-text-muted mb-12 max-w-3xl mx-auto"
           >
             Connect with one of our expert agents today.
           </motion.p>
@@ -272,7 +272,7 @@ export default function Agents() {
           >
             <Link
               href="/contact"
-              className="inline-flex items-center gap-4 px-14 py-6 bg-gray-950/75 text-white font-bold text-xl rounded-full shadow-2xl hover:shadow-gray-950/50 hover:bg-gray-950 transition-all duration-500 hover:-translate-y-1"
+              className="inline-flex items-center gap-4 px-14 py-6 bg-surface-inverted/75 text-text-inverted font-bold text-xl rounded-pill shadow-2xl hover:shadow-surface-inverted/50 hover:bg-surface-inverted transition-all duration-500 hover:-translate-y-1"
             >
               Contact an Agent
               <ArrowRight className="w-6 h-6" />

@@ -5,11 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
-const BRAND_COLOR = "#1a1a1a";
-const GOLD_ACCENT = "#c9a96e";
-const TEXT_COLOR = "#2c2c2c";
-const HOVER_COLOR = GOLD_ACCENT;
+import clsx from "clsx";
 
 const navLinks = [
     { name: "Properties", href: "/properties" },
@@ -39,66 +35,46 @@ export default function Navbar() {
                     <div className="flex items-center justify-between h-16 lg:h-20">
                         <Link
                             href="/"
-                            className="text-2xl lg:text-3xl font-extrabold tracking-tight transition-colors duration-300 hover:opacity-90"
-                            style={{ color: BRAND_COLOR }}
+                            className="text-2xl lg:text-3xl font-extrabold tracking-tight text-text-heading transition-colors duration-300 hover:opacity-90"
                         >
-                            Neeps <span style={{ color: GOLD_ACCENT, fontWeight: 600 }}>International</span>
+                            Neeps <span className="text-accent font-semibold">International</span>
                         </Link>
                         <nav className="hidden lg:flex items-center gap-10 xl:gap-14">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className={`
-                    group relative text-[15px] xl:text-base font-medium tracking-wide
-                    transition-colors duration-300
-                    ${isActive(link.href)
-                                            ? `text-[${GOLD_ACCENT}]`
-                                            : `text-[${TEXT_COLOR}] hover:text-[${HOVER_COLOR}]`
-                                        }
-                    visited:text-[${GOLD_ACCENT}]
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[${GOLD_ACCENT}] focus-visible:ring-offset-2 rounded-sm
-                  `}
+                                    className={clsx(
+                                        "group relative text-[15px] xl:text-base font-medium tracking-wide transition-colors duration-300 visited:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-sm",
+                                        isActive(link.href) ? "text-accent" : "text-text-heading hover:text-accent"
+                                    )}
                                 >
                                     {link.name}
                                     <span
-                                        className={`
-                      absolute -bottom-2 left-0 h-[2.5px] bg-[${GOLD_ACCENT}] rounded-full
-                      transition-all duration-500 ease-out
-                      ${isActive(link.href)
-                                                ? "w-full"
-                                                : "w-0 group-hover:w-full group-focus:w-full"
-                                            }
-                    `}
+                                        className={clsx(
+                                            "absolute -bottom-2 left-0 h-[2.5px] bg-accent rounded-full transition-all duration-500 ease-out",
+                                            isActive(link.href) ? "w-full" : "w-0 group-hover:w-full group-focus:w-full"
+                                        )}
                                     />
                                 </Link>
                             ))}
                             <Link
                                 href="/properties"
-                                className={`
-                  ml-6 px-8 py-3.5 rounded-full
-                  text-[15px] xl:text-base font-semibold tracking-wide uppercase
-                  bg-gray-950/75 text-white
-                  shadow-[0_4px_14px_rgba(201,169,110,0.25)]
-                  hover:shadow-[0_8px_24px_rgba(201,169,110,0.35)]
-                  hover:-translate-y-0.5 active:translate-y-0
-                  transition-all duration-400
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[${GOLD_ACCENT}]
-                `}
+                                className="ml-6 px-8 py-3.5 rounded-pill text-[15px] xl:text-base font-semibold tracking-wide uppercase bg-surface-inverted/75 text-text-inverted shadow-[0_4px_14px_rgba(201,169,110,0.25)] hover:shadow-[0_8px_24px_rgba(201,169,110,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent"
                             >
                                 Explore Properties
                             </Link>
                         </nav>
                         <button
                             onClick={() => setMobileOpen(!mobileOpen)}
-                            className="lg:hidden p-3 rounded-full hover:bg-gray-50 transition-colors"
+                            className="lg:hidden p-3 rounded-pill hover:bg-surface-muted transition-colors"
                             aria-label="Toggle navigation menu"
                             aria-expanded={mobileOpen}
                         >
                             {mobileOpen ? (
-                                <X size={28} strokeWidth={2.5} color={BRAND_COLOR} />
+                                <X size={28} strokeWidth={2.5} className="text-text-heading" />
                             ) : (
-                                <Menu size={28} strokeWidth={2.5} color={BRAND_COLOR} />
+                                <Menu size={28} strokeWidth={2.5} className="text-text-heading" />
                             )}
                         </button>
                     </div>
@@ -119,23 +95,17 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 24, stiffness: 160 }}
-                            className={`
-                fixed top-0 right-0 bottom-0 z-[1000]
-                w-[85vw] max-w-md
-                bg-gradient-to-b from-white to-gray-50
-                shadow-[-20px_0_50px_rgba(0,0,0,0.25)]
-                lg:hidden overflow-y-auto
-              `}
+                            className="fixed top-0 right-0 bottom-0 z-[1000] w-[85vw] max-w-md bg-gradient-to-b from-surface to-surface-muted shadow-[-20px_0_50px_rgba(0,0,0,0.25)] lg:hidden overflow-y-auto"
                         >
                             <div className="flex flex-col h-full">
-                                <div className="p-8 border-b border-gray-100 flex items-center justify-between">
+                                <div className="p-8 border-b border-border flex items-center justify-between">
                                     <Link href="/">
-                                        <span className="text-2xl font-bold tracking-tight" style={{ color: BRAND_COLOR }}>
+                                        <span className="text-2xl font-bold tracking-tight text-text-heading">
                                             Neeps
                                         </span>
                                     </Link>
                                     <button onClick={() => setMobileOpen(false)} aria-label="Close menu">
-                                        <X size={32} color={BRAND_COLOR} />
+                                        <X size={32} className="text-text-heading" />
                                     </button>
                                 </div>
                                 <div className="flex-1 px-8 py-12 space-y-10">
@@ -149,34 +119,21 @@ export default function Navbar() {
                                             <Link
                                                 href={link.href}
                                                 onClick={() => setMobileOpen(false)}
-                                                className={`
-                          block text-lg lg:text-xl font-medium tracking-wide
-                          transition-colors duration-300
-                          ${isActive(link.href)
-                                                        ? `text-[${GOLD_ACCENT}]`
-                                                        : `text-gray-800 hover:text-[${GOLD_ACCENT}]`
-                                                    }
-                          visited:text-[${GOLD_ACCENT}]
-                        `}
+                                                className={clsx(
+                                                    "block text-lg lg:text-xl font-medium tracking-wide transition-colors duration-300 visited:text-accent",
+                                                    isActive(link.href) ? "text-accent" : "text-text-heading hover:text-accent"
+                                                )}
                                             >
                                                 {link.name}
                                             </Link>
                                         </motion.div>
                                     ))}
                                 </div>
-                                <div className="p-8 border-t border-gray-100 mt-auto">
+                                <div className="p-8 border-t border-border mt-auto">
                                     <Link
                                         href="/properties"
                                         onClick={() => setMobileOpen(false)}
-                                        className={`
-                      flex justify-center items-center py-6
-                      bg-gray-950/75 text-white
-                      rounded-2xl text-lg font-semibold tracking-wide uppercase
-                      shadow-lg shadow-[${GOLD_ACCENT}]/30
-                      hover:shadow-xl hover:shadow-[${GOLD_ACCENT}]/40
-                      hover:-translate-y-1 active:translate-y-0
-                      transition-all duration-400
-                    `}
+                                        className="flex justify-center items-center py-6 bg-surface-inverted/75 text-text-inverted rounded-card text-lg font-semibold tracking-wide uppercase shadow-lg shadow-accent/30 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-1 active:translate-y-0 transition-all duration-400"
                                     >
                                         Explore Properties
                                     </Link>

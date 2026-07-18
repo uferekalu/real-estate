@@ -26,7 +26,7 @@ export default function PropertyGallery({ property }: PropertyGalleryProps) {
   return (
     <div className="relative">
       {/* Main Gallery */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 rounded-3xl overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 rounded-card overflow-hidden">
         {/* Large main image */}
         <motion.div
           className="relative col-span-1 md:col-span-2 lg:col-span-2 row-span-2 h-64 md:h-96 lg:h-[600px] overflow-hidden cursor-pointer"
