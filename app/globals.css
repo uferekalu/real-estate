@@ -1,13 +1,66 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #606263;
-  --color-white: #ffffff;
-  --color-muted: #f5f5f5;
-  --color-border: #e5e5e5;
+  /* ---------------------------------------------------------------------
+   * PRIMITIVES — raw values. Not used directly by components; only the
+   * semantic layer below (inside @theme) is allowed to reference these.
+   * Tailwind's own default palette (gray-*, green-*, red-*, amber-*, ...)
+   * already covers everything not brand-specific, so it isn't redefined
+   * here — the semantic layer below references those defaults directly.
+   * ------------------------------------------------------------------- */
+  --color-gold-400: #d4b67a;
+  --color-gold-500: #c9a96e;
+  --color-gold-600: #b3915a;
+
+  --color-ink-900: #1a1a1a;
+  --color-ink-800: #2c2c2c;
+  --color-ink-600: #606263;
+
+  --color-cream-100: #f8f5f1;
+  --color-cream-200: #e5e5e5;
+}
+
+@theme {
+  /* ---------------------------------------------------------------------
+   * SEMANTIC — what components actually use. Everything here generates
+   * real Tailwind utilities (bg-accent, text-text-primary, etc.).
+   * ------------------------------------------------------------------- */
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-muted: var(--color-cream-100);
+  --color-surface-inverted: var(--color-ink-900);
+
+  /* Text */
+  --color-text-primary: var(--color-ink-600);
+  --color-text-heading: var(--color-ink-900);
+  --color-text-inverted: #ffffff;
+  --color-text-muted: var(--color-gray-600);
+
+  /* Borders */
+  --color-border: var(--color-cream-200);
+
+  /* Brand accent */
+  --color-accent: var(--color-gold-500);
+  --color-accent-hover: var(--color-gold-400);
+  --color-accent-strong: var(--color-gold-600);
+
+  /* Listing status */
+  --color-status-available: var(--color-green-500);
+  --color-status-pending: var(--color-yellow-500);
+  --color-status-sold: var(--color-red-500);
+  --color-status-rented: var(--color-blue-500);
+
+  /* Radius */
+  --radius-card: 1.5rem;
+  --radius-pill: 9999px;
+
+  /* Spacing aliases for patterns repeated identically across many files */
+  --spacing-section-y: 6rem;
+  --spacing-card-padding: 1.5rem;
 }
 
 body {
-  background-color: var(--color-white);
-  color: var(--color-primary);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
 }
