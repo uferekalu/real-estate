@@ -38,10 +38,10 @@ export default function Hero() {
               The Neeps International
             </span>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[1.02] tracking-[-0.02em]">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-text-inverted leading-[1.02] tracking-[-0.02em]">
               Discover Your {" "}
               <br className="sm:hidden" />
-              <span className="text-gold block sm:inline">Dream Property</span>
+              <span className="text-accent block sm:inline">Dream Property</span>
             </h1>
 
             <motion.p
@@ -61,16 +61,16 @@ export default function Hero() {
             >
               <a
                 href="/properties"
-                className="group relative inline-flex items-center justify-center px-10 py-5 bg-gold text-[#1a1a1a] font-semibold text-lg rounded-full overflow-hidden shadow-xl hover:shadow-gold/40 transition-all duration-500 hover:-translate-y-1 active:translate-y-0"
+                className="group relative inline-flex items-center justify-center px-10 py-5 bg-accent text-text-heading font-semibold text-lg rounded-pill overflow-hidden shadow-xl hover:shadow-accent/40 transition-all duration-500 hover:-translate-y-1 active:translate-y-0"
               >
-                <span className="relative z-10 text-white">Explore Properties</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-gold to-[#d4b67a] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <ArrowRight className="ml-3 w-5 h-5 relative z-10 text-white transition-transform group-hover:translate-x-1.5" />
+                <span className="relative z-10 text-text-inverted">Explore Properties</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-hover scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+                <ArrowRight className="ml-3 w-5 h-5 relative z-10 text-text-inverted transition-transform group-hover:translate-x-1.5" />
               </a>
 
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/50 text-white font-medium text-lg rounded-full backdrop-blur-sm hover:bg-white/10 hover:border-white/70 transition-all duration-400"
+                className="inline-flex items-center justify-center px-10 py-5 border-2 border-white/50 text-text-inverted font-medium text-lg rounded-pill backdrop-blur-sm hover:bg-white/10 hover:border-white/70 transition-all duration-400"
               >
                 Speak with an Expert
               </a>
